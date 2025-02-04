@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+echo -e "\n🐮 cls is a windows power shell / command prompt commnd! Use 'clear' instead \n"
