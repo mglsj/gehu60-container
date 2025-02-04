@@ -7,4 +7,5 @@ docker run -it --rm \
     -p 8443:8443 \
     -v $workspacePath:/workspaces \
     -v /var/run/docker.sock:/var/run/docker.soc \
+    -e RepositoryName=1234 \
     container

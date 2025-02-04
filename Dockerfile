@@ -55,13 +55,6 @@ RUN cd /tmp && \
 RUN npm install --global @vscode/vsce yarn && \
     mkdir --parents /opt/cs50/extensions && \
     cd /tmp && \
-    git clone https://github.com/cs50/explain50.vsix.git && \
-    cd explain50.vsix && \
-    npm install && \
-    vsce package && \
-    mv explain50-1.0.0.vsix /opt/cs50/extensions && \
-    cd /tmp && \
-    rm --force --recursive explain50.vsix && \
     git clone https://github.com/cs50/cs50.vsix.git && \
     cd cs50.vsix && \
     npm install && \
@@ -70,13 +63,6 @@ RUN npm install --global @vscode/vsce yarn && \
     mv python-clients/cs50vsix-client /opt/cs50/extensions && \
     cd /tmp && \
     rm --force --recursive cs50.vsix && \
-    git clone https://github.com/cs50/ddb50.vsix.git && \
-    cd ddb50.vsix && \
-    npm install && \
-    vsce package && \
-    mv ddb50-2.0.0.vsix /opt/cs50/extensions && \
-    cd /tmp && \
-    rm --force --recursive ddb50.vsix && \
     git clone https://github.com/cs50/phpliteadmin.vsix.git && \
     cd phpliteadmin.vsix && \
     npm install && \
@@ -91,13 +77,6 @@ RUN npm install --global @vscode/vsce yarn && \
     mv style50-0.0.1.vsix /opt/cs50/extensions && \
     cd /tmp && \
     rm --force --recursive style50.vsix && \
-    git clone https://github.com/cs50/design50.vsix.git && \
-    cd design50.vsix && \
-    npm install && \
-    vsce package && \
-    mv design50-1.0.0.vsix /opt/cs50/extensions && \
-    cd /tmp && \
-    rm --force --recursive design50.vsix && \
     npm uninstall --global vsce yarn
 
 
@@ -126,10 +105,7 @@ RUN code --install-extension cs50.extension-uninstaller && \
     code --install-extension vscjava.vscode-java-debug && \
     code --install-extension vsls-contrib.gitdoc && \
     code --install-extension github.github-vscode-theme && \
-    code --install-extension "/opt/cs50/extensions/explain50-1.0.0.vsix" && \
     code --install-extension "/opt/cs50/extensions/cs50-0.0.1.vsix" && \
-    code --install-extension "/opt/cs50/extensions/design50-1.0.0.vsix" && \
-    code --install-extension "/opt/cs50/extensions/ddb50-2.0.0.vsix" && \
     code --install-extension "/opt/cs50/extensions/phpliteadmin-0.0.1.vsix" && \
     code --install-extension "/opt/cs50/extensions/style50-0.0.1.vsix"
 
