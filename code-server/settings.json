@@ -119,7 +119,7 @@
     ],
     "terminal.integrated.enableVisualBell": true,
     "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.gpuAcceleration": "off",
+    "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.profiles.linux": {
         "JavaScript Debug Terminal": null
     },

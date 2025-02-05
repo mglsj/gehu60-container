@@ -92,22 +92,14 @@ RUN  apt-get install -y wget gpg && \
 
 USER ubuntu
 
-RUN code --install-extension cs50.extension-uninstaller && \
-    code --install-extension inferrinizzard.prettier-sql-vscode && \
-    code --install-extension mathematic.vscode-pdf && \
-    code --install-extension ms-azuretools.vscode-docker && \
-    code --install-extension ms-python.black-formatter && \
-    code --install-extension ms-python.python && \
-    code --install-extension ms-vscode.cpptools && \
-    code --install-extension ms-vscode.hexeditor && \
-    code --install-extension ms-vsliveshare.vsliveshare && \
-    code --install-extension redhat.java && \
-    code --install-extension vscjava.vscode-java-debug && \
-    code --install-extension vsls-contrib.gitdoc && \
-    code --install-extension github.github-vscode-theme && \
-    code --install-extension "/opt/cs50/extensions/cs50-0.0.1.vsix" && \
+COPY ./code-server/extensions.txt /tmp/extensions.txt
+
+# Bash script to loop through extensions and install them
+RUN while read -r line; do code --install-extension $line; done < /tmp/extensions.txt
+
+RUN code --install-extension "/opt/cs50/extensions/cs50-0.0.1.vsix" && \
     code --install-extension "/opt/cs50/extensions/phpliteadmin-0.0.1.vsix" && \
-    code --install-extension "/opt/cs50/extensions/style50-0.0.1.vsix"
+    code --install-extension "/opt/cs50/extensions/style50-0.0.1.vsix" 
 
 # Final stage
 FROM cs50/cli:${TAG}
