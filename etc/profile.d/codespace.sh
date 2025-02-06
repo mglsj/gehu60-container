@@ -69,7 +69,9 @@ if [ "$(whoami)" != "root" ]; then
     # https://stackoverflow.com/a/64868901
     command git config --global --replace-all credential.helper ""
     command git config --global --add credential.helper /opt/cs50/bin/gitcredential_github.sh
-
+    command git config --global --add safe.directory /workspaces/$RepositoryName
+    command git config --global user.name "$GITHUB_USERNAME"
+    command git config --global user.email "$GITHUB_EMAIL"
     # Discourage use of git in repository
     git() {
         if [[ "$PWD/" =~ ^/workspaces/"$RepositoryName"/ ]]; then
